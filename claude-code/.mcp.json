@@ -1,8 +1,6 @@
 {
-  "mcpServers": {
-    "colign": {
-      "type": "http",
-      "url": "${COLIGN_MCP_URL:-https://api.colign.co/mcp}"
-    }
+  "colign": {
+    "type": "http",
+    "url": "https://api.colign.co/mcp"
   }
 }

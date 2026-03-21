@@ -12,32 +12,36 @@ Create a structured proposal and save it to the Colign platform.
 1. If no change exists yet, ask the user for the project and change name
 2. Gather context from the user about what they want to build
 3. Call `mcp__colign__read_spec` with `doc_type: proposal` to check for existing content
-4. Draft a structured proposal in this format:
+4. Draft a structured proposal with these sections:
+   - **problem** (required): Why is this change needed? What user pain does it solve?
+   - **scope** (required): What specifically will change? Be concrete about deliverables.
+   - **outOfScope** (optional): What is explicitly NOT included in this change?
+   - **approach** (optional): Technical direction and key design decisions.
+5. Present the draft to the user for review
+6. After approval, call `mcp__colign__write_spec` with `doc_type: proposal` and content as a **JSON string**
 
-```markdown
-## Problem
-Why is this change needed? What user pain does it solve?
+## Content Format
 
-## Scope
-What specifically will change? Be concrete about deliverables.
+The content MUST be a JSON string with these keys:
 
-## Out of Scope
-What is explicitly NOT included in this change?
-
-## Approach
-Technical direction and key design decisions.
+```json
+{
+  "problem": "Why is this change needed?",
+  "scope": "What will change? Use \\n for line breaks.",
+  "outOfScope": "What is NOT included?",
+  "approach": "Technical direction."
+}
 ```
 
-5. Present the draft to the user for review
-6. After approval, call `mcp__colign__write_spec` with `doc_type: proposal` to save
+Do NOT use markdown format. The web UI parses this JSON to display each section separately.
 
 ## Guidelines
 
 - Keep proposals concise — focus on the "why" and "what", not implementation details
 - Always check existing content before overwriting
 - Ask clarifying questions if the scope is unclear
-- Use the project's memory context if available (call `read_spec` with `doc_type: spec` for project conventions)
+- Use `\n` for line breaks within sections, not actual newlines
 
 ## Next Step
 
-After the proposal is saved, suggest running `/colign:design` to generate the detailed design and implementation tasks.
+After the proposal is saved, suggest running `/colign:plan` to generate the implementation plan and tasks.

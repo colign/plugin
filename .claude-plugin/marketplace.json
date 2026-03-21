@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "claude-code",
+      "name": "colign",
       "source": "./claude-code",
       "description": "Colign MCP integration with workflow skills — explore, propose, plan, implement, complete. Connect Claude Code to the Colign spec management platform."
     }

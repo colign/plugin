@@ -5,45 +5,51 @@ description: Set up and verify the Colign MCP connection. Use when the user firs
 
 # Onboard to Colign
 
-Guide the user through connecting to the Colign MCP server.
+Guide the user through connecting to the Colign MCP server. The goal is to configure the MCP connection so the user never has to set environment variables manually.
 
 ## Workflow
 
-### Step 1: Check API token
+### Step 1: Ask for the API token
 
-```bash
-echo $COLIGN_API_TOKEN
-```
-
-If `COLIGN_API_TOKEN` is not set:
-1. Tell the user to go to **Colign Settings > AI & API Keys**
+Tell the user:
+1. Go to **https://app.colign.co** > **Settings** > **AI & API Keys**
 2. Click **Generate Token** and name it (e.g., "Claude Code")
-3. Copy the token (it's only shown once)
-4. Set it: `export COLIGN_API_TOKEN=col_...`
+3. Paste the token here
 
-### Step 2: Check MCP URL (optional)
+Wait for the user to provide the token (starts with `col_`).
 
-```bash
-echo $COLIGN_MCP_URL
+### Step 2: Configure MCP connection
+
+Once the token is received, use the `update-config` skill or directly write to `~/.claude/settings.json` to add the MCP server configuration:
+
+```json
+{
+  "mcpServers": {
+    "colign": {
+      "url": "https://api.colign.co/mcp",
+      "headers": {
+        "Authorization": "Bearer <TOKEN>"
+      }
+    }
+  }
+}
 ```
 
-- **SaaS (default)**: No action needed — defaults to `https://app.colign.dev/mcp`
-- **Self-hosted**: Set `export COLIGN_MCP_URL=https://your-instance.com/mcp`
-- **Local dev**: Set `export COLIGN_MCP_URL=http://localhost:8080/mcp`
+Read `~/.claude/settings.json` first, merge the `mcpServers.colign` key into existing settings, and write back. Do not overwrite other settings.
 
-### Step 3: Verify the connection
+If the user is self-hosted, ask for their instance URL and use `https://<their-url>/mcp` instead.
 
-Try calling `mcp__colign__list_projects` to verify the MCP server is working.
+### Step 3: Reload and verify
 
-- **Success**: Show the project list and confirm everything is connected
-- **Auth error**: Token is invalid or expired — regenerate in Colign Settings
-- **Connection error**: Check if the URL is correct and the server is reachable
+After writing the settings:
+1. Tell the user to run `/reload-plugins` to pick up the new MCP server
+2. Try calling `mcp__colign__list_projects` to verify the connection works
 
 ### Step 4: Confirm setup
 
 ```
 Colign MCP: Connected
-URL: [url]
+URL: https://api.colign.co/mcp
 Projects: [count] accessible
 
 You're all set! Here's how to get started:
@@ -56,6 +62,6 @@ You're all set! Here's how to get started:
 This skill should also trigger when other colign skills fail due to:
 - Authentication failures (401)
 - Connection refused errors
-- Missing API token errors
+- MCP server not found
 
-In these cases, guide the user through the relevant fix step.
+In these cases, check `~/.claude/settings.json` for the colign MCP config and guide the user through re-entering their token.

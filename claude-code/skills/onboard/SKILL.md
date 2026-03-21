@@ -5,28 +5,40 @@ description: Set up and verify the Colign MCP connection. Use when the user firs
 
 # Onboard to Colign
 
-Guide the user through connecting to the Colign MCP server. The goal is to configure the MCP connection so the user never has to set environment variables manually.
+Guide the user through connecting to the Colign MCP server using interactive prompts. Use the `AskUserQuestion` tool for each input step so the user can respond inline.
 
 ## Workflow
 
-### Step 1: Ask for the API token
+### Step 1: Ask for the Colign URL
 
-Tell the user:
-1. Go to **https://app.colign.co** > **Settings** > **AI & API Keys**
-2. Click **Generate Token** and name it (e.g., "Claude Code")
-3. Paste the token here
+Use `AskUserQuestion` to ask:
 
-Wait for the user to provide the token (starts with `col_`).
+> Colign 인스턴스 URL을 입력하세요.
+> - SaaS 사용자: 그냥 Enter (기본값: https://api.colign.co)
+> - Self-hosted: https://your-instance.com
 
-### Step 2: Configure MCP connection
+If the user provides a URL, use it. If empty or skipped, default to `https://api.colign.co`.
+Append `/mcp` to the URL if not already present.
 
-Once the token is received, use the `update-config` skill or directly write to `~/.claude/settings.json` to add the MCP server configuration:
+### Step 2: Ask for the API token
+
+Use `AskUserQuestion` to ask:
+
+> API 토큰을 입력하세요.
+> (https://app.colign.co > Settings > AI & API Keys에서 생성할 수 있습니다)
+
+Wait for the user to paste their token (starts with `col_`).
+If the token doesn't start with `col_`, warn and ask again.
+
+### Step 3: Configure MCP connection
+
+Read `~/.claude/settings.json`, merge the colign MCP server config, and write back:
 
 ```json
 {
   "mcpServers": {
     "colign": {
-      "url": "https://api.colign.co/mcp",
+      "url": "<URL>/mcp",
       "headers": {
         "Authorization": "Bearer <TOKEN>"
       }
@@ -35,21 +47,18 @@ Once the token is received, use the `update-config` skill or directly write to `
 }
 ```
 
-Read `~/.claude/settings.json` first, merge the `mcpServers.colign` key into existing settings, and write back. Do not overwrite other settings.
+Do not overwrite other existing settings — only merge the `mcpServers.colign` key.
 
-If the user is self-hosted, ask for their instance URL and use `https://<their-url>/mcp` instead.
+### Step 4: Reload and verify
 
-### Step 3: Reload and verify
+1. Tell the user to run `/reload-plugins`
+2. After reload, call `mcp__colign__list_projects` to verify
 
-After writing the settings:
-1. Tell the user to run `/reload-plugins` to pick up the new MCP server
-2. Try calling `mcp__colign__list_projects` to verify the connection works
-
-### Step 4: Confirm setup
+### Step 5: Confirm setup
 
 ```
 Colign MCP: Connected
-URL: https://api.colign.co/mcp
+URL: [url]
 Projects: [count] accessible
 
 You're all set! Here's how to get started:
@@ -64,4 +73,4 @@ This skill should also trigger when other colign skills fail due to:
 - Connection refused errors
 - MCP server not found
 
-In these cases, check `~/.claude/settings.json` for the colign MCP config and guide the user through re-entering their token.
+In these cases, check `~/.claude/settings.json` for the colign MCP config and re-run onboard.

@@ -9,14 +9,14 @@ Read the spec from Colign, implement the code locally, and update task progress 
 
 ## Workflow
 
-1. Call `mcp__colign__read_spec` with `doc_type: design` to read the design
-2. Call `mcp__colign__read_spec` with `doc_type: proposal` for additional context
-3. Call `mcp__colign__list_tasks` to see the task list and their current status
+1. Call `mcp__plugin_colign_colign__read_spec` with `doc_type: design` to read the design
+2. Call `mcp__plugin_colign_colign__read_spec` with `doc_type: proposal` for additional context
+3. Call `mcp__plugin_colign_colign__list_tasks` to see the task list and their current status
 4. Pick the next `todo` task (or let the user choose)
-5. Call `mcp__colign__update_task` to set it to `in_progress`
+5. Call `mcp__plugin_colign_colign__update_task` to set it to `in_progress`
 6. Implement the code locally following the spec
 7. Verify the implementation (run tests, build, etc.)
-8. Call `mcp__colign__update_task` to set the task to `done`
+8. Call `mcp__plugin_colign_colign__update_task` to set the task to `done`
 9. Move to the next task or ask the user
 
 ## Guidelines

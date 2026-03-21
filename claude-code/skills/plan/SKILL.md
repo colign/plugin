@@ -9,8 +9,8 @@ Read the proposal from Colign and generate an implementation plan with tasks.
 
 ## Workflow
 
-1. Call `mcp__colign__read_spec` with `doc_type: proposal` to read the proposal
-2. Optionally call `mcp__colign__suggest_spec` to get AI improvement suggestions
+1. Call `mcp__plugin_colign_colign__read_spec` with `doc_type: proposal` to read the proposal
+2. Optionally call `mcp__plugin_colign_colign__suggest_spec` to get AI improvement suggestions
 3. Analyze the codebase locally to understand existing patterns and constraints
 4. Draft an implementation plan covering:
    - Architecture decisions
@@ -21,7 +21,7 @@ Read the proposal from Colign and generate an implementation plan with tasks.
 5. Break the plan into ordered implementation tasks
 6. Present the plan + task list to the user for review
 7. After approval:
-   - Call `mcp__colign__write_spec` with `doc_type: design` to save the plan
+   - Call `mcp__plugin_colign_colign__write_spec` with `doc_type: design` to save the plan
 
 ## Plan Format
 

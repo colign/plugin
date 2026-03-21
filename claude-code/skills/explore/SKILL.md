@@ -9,10 +9,10 @@ Browse projects, changes, and specs on the Colign platform.
 
 ## Workflow
 
-1. Call `mcp__colign__list_projects` to see all accessible projects
+1. Call `mcp__plugin_colign_colign__list_projects` to see all accessible projects
 2. Ask the user which project or change they want to work on
-3. Call `mcp__colign__get_change` with the change ID to see its current stage and metadata
-4. Call `mcp__colign__read_spec` to read the relevant documents (proposal, design, spec, tasks)
+3. Call `mcp__plugin_colign_colign__get_change` with the change ID to see its current stage and metadata
+4. Call `mcp__plugin_colign_colign__read_spec` to read the relevant documents (proposal, design, spec, tasks)
 5. Summarize the current state concisely:
    - What stage is the change in?
    - What has been written so far?

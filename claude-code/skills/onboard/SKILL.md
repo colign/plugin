@@ -52,7 +52,7 @@ Do not overwrite other existing settings — only merge the `mcpServers.colign` 
 ### Step 4: Reload and verify
 
 1. Tell the user to run `/reload-plugins`
-2. After reload, call `mcp__colign__list_projects` to verify
+2. After reload, call `mcp__plugin_colign_colign__list_projects` to verify
 
 ### Step 5: Confirm setup
 

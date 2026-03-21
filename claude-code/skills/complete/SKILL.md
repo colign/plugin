@@ -9,9 +9,9 @@ Verify all work is done and advance the change to the next workflow stage.
 
 ## Workflow
 
-1. Call `mcp__colign__list_tasks` to verify all tasks are `done`
+1. Call `mcp__plugin_colign_colign__list_tasks` to verify all tasks are `done`
 2. If any tasks remain `todo` or `in_progress`, warn the user and list them
-3. Call `mcp__colign__get_change` to check the current stage
+3. Call `mcp__plugin_colign_colign__get_change` to check the current stage
 4. Summarize what was accomplished:
    - Tasks completed
    - Files modified (from local git status)

@@ -1,32 +1,23 @@
 # Colign Plugin for Claude Code
 
-Connect Claude Code to the Colign spec management platform. Read, write, and manage specs directly from your terminal.
+Connect Claude Code to the [Colign](https://github.com/colign/colign) spec management platform. Read, write, and manage specs directly from your terminal.
 
 No binary to install — connects via Streamable HTTP.
 
-## Setup
-
-### 1. Generate an API Token
-
-Go to Colign Settings > AI & API Keys and generate a new API token.
-
-### 2. Set Environment Variable
+## Install
 
 ```bash
+# 1. Register marketplace
+/plugin marketplace add https://github.com/colign/plugin
+
+# 2. Install plugin
+/plugin install claude-code@colign
+
+# 3. Set your API token (generate at app.colign.co > Settings > AI & API Keys)
 export COLIGN_API_TOKEN=col_your_token_here
 
 # Optional: for self-hosted instances
-export COLIGN_MCP_URL=https://your-instance.com/mcp  # defaults to https://app.colign.dev/mcp
-```
-
-### 3. Install the Plugin
-
-```bash
-# Local testing
-claude --plugin-dir ./plugins/claude-code
-
-# Or install from marketplace
-claude plugin install colign
+export COLIGN_MCP_URL=https://your-instance.com/mcp  # defaults to https://api.colign.co/mcp
 ```
 
 ## Workflow

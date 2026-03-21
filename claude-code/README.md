@@ -2,7 +2,7 @@
 
 Connect Claude Code to the [Colign](https://github.com/colign/colign) spec management platform. Read, write, and manage specs directly from your terminal.
 
-No binary to install — connects via Streamable HTTP.
+No binary, no API tokens, no environment variables — just install and connect.
 
 ## Install
 
@@ -11,13 +11,17 @@ No binary to install — connects via Streamable HTTP.
 /plugin marketplace add https://github.com/colign/plugin
 
 # 2. Install plugin
-/plugin install claude-code@colign
+/plugin install colign@colign
 
-# 3. Set your API token (generate at app.colign.co > Settings > AI & API Keys)
-export COLIGN_API_TOKEN=col_your_token_here
+# 3. Reload and connect
+/reload-plugins
+```
 
-# Optional: for self-hosted instances
-export COLIGN_MCP_URL=https://your-instance.com/mcp  # defaults to https://api.colign.co/mcp
+On first connection, your browser will open for Colign login. After signing in, the MCP connection is established automatically via OAuth.
+
+For self-hosted instances, set `COLIGN_MCP_URL` before installing:
+```bash
+export COLIGN_MCP_URL=https://your-instance.com/mcp
 ```
 
 ## Workflow
@@ -30,7 +34,7 @@ onboard → explore → propose → plan → implement → complete
 
 | Skill | Stage | Description |
 |-------|-------|-------------|
-| `/colign:onboard` | Setup | Verify MCP connection and API token |
+| `/colign:onboard` | Setup | Verify MCP connection |
 | `/colign:explore` | Any | Browse projects, read specs, check change status |
 | `/colign:propose` | Draft → Problem | Define the problem, scope, and write a structured proposal |
 | `/colign:plan` | Problem → Solution | Break proposal into architecture, implementation steps, and tasks |
@@ -50,6 +54,8 @@ Skills auto-trigger based on context (e.g., "implement the next task") or can be
 | `list_tasks` | List implementation tasks for a change |
 | `update_task` | Update a task's status (todo, in_progress, done) |
 | `suggest_spec` | Get AI suggestions for improving a spec |
+| `list_acceptance_criteria` | List acceptance criteria (Given/When/Then) |
+| `create_acceptance_criteria` | Create BDD-style acceptance criteria |
 
 ## Example Usage
 

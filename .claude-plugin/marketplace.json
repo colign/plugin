@@ -1,10 +1,13 @@
 {
   "name": "colign",
-  "description": "AI-powered spec management — read, write, and manage specs from Claude Code",
-  "plugins": {
-    "claude-code": {
-      "path": ".",
-      "description": "Colign MCP integration with workflow skills (explore, propose, plan, implement, complete)"
+  "owner": {
+    "name": "colign"
+  },
+  "plugins": [
+    {
+      "name": "claude-code",
+      "source": ".",
+      "description": "Colign MCP integration with workflow skills — explore, propose, plan, implement, complete. Connect Claude Code to the Colign spec management platform."
     }
-  }
+  ]
 }

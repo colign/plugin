@@ -1,0 +1,12 @@
+{
+  "name": "claude-code",
+  "description": "Colign MCP integration with workflow skills — explore, propose, plan, implement, complete. Connect Claude Code to the Colign spec management platform.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Colign",
+    "url": "https://github.com/colign"
+  },
+  "homepage": "https://github.com/colign/plugin",
+  "repository": "https://github.com/colign/plugin",
+  "license": "AGPL-3.0"
+}

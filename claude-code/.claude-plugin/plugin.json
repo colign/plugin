@@ -1,12 +1,12 @@
 {
   "name": "colign",
-  "description": "Colign MCP integration with workflow skills — explore, propose, plan, implement, complete. Connect Claude Code to the Colign spec management platform.",
-  "version": "0.1.0",
+  "description": "Claude Code integration for Colign — AI-powered spec management platform. Read, write, and manage specs directly from Claude Code.",
+  "version": "0.2.0",
   "author": {
     "name": "Colign",
-    "url": "https://github.com/colign"
+    "url": "https://github.com/colign/colign"
   },
-  "homepage": "https://github.com/colign/plugin",
-  "repository": "https://github.com/colign/plugin",
-  "license": "AGPL-3.0"
+  "homepage": "https://github.com/colign/colign",
+  "repository": "https://github.com/colign/colign",
+  "license": "MIT"
 }

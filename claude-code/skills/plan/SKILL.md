@@ -66,11 +66,22 @@ Each task should be:
 - Independently verifiable
 - Ordered by dependency
 
-### Phase 4: Summary
+### Phase 4: Advance Stage
+
+If the change is currently in `draft` stage, ask the user whether to advance it to `design` now. If they confirm:
+
+```
+mcp__colign__advance_stage  →  change_id, project_id
+```
+
+If the change is already in `design` or later, skip this step entirely.
+
+### Phase 5: Summary
 
 ```
 Design: ✓ saved
 Tasks: [N] created
+Stage: draft → design (advanced)
 
 Ready for implementation. Run /colign:implement to start.
 ```

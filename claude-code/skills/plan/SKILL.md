@@ -28,7 +28,7 @@ Read the proposal from Colign, design the implementation approach, and create or
 
 If no proposal exists, suggest running `/colign:propose` first.
 
-### Phase 2: Write the Design
+### Phase 2: Write the Spec
 
 Draft an implementation plan grounded in the actual codebase:
 
@@ -47,15 +47,15 @@ New or modified data structures.
 How to verify the implementation.
 ```
 
-Present the design to the user for review. After approval, save it:
+Present the spec to the user for review. After approval, save it:
 
 ```
-mcp__colign__write_spec  →  doc_type: "design"
+mcp__colign__write_spec  →  doc_type: "spec"
 ```
 
 ### Phase 3: Create Tasks
 
-Break the design into ordered implementation tasks. For each task, call:
+Break the spec into ordered implementation tasks. For each task, call:
 
 ```
 mcp__colign__create_task  →  change_id, title, description, status: "todo"
@@ -68,20 +68,20 @@ Each task should be:
 
 ### Phase 4: Advance Stage
 
-If the change is currently in `draft` stage, ask the user whether to advance it to `design` now. If they confirm:
+If the change is currently in `draft` stage, ask the user whether to advance it to `spec` now. If they confirm:
 
 ```
 mcp__colign__advance_stage  →  change_id, project_id
 ```
 
-If the change is already in `design` or later, skip this step entirely.
+If the change is already in `spec` or later, skip this step entirely.
 
 ### Phase 5: Summary
 
 ```
-Design: ✓ saved
+Spec: ✓ saved
 Tasks: [N] created
-Stage: draft → design (advanced)
+Stage: draft → spec (advanced)
 
 Ready for implementation. Run /colign:implement to start.
 ```
@@ -91,17 +91,17 @@ Ready for implementation. Run /colign:implement to start.
 ## Guidelines
 
 - **Always read the proposal first** — don't plan in a vacuum
-- **Reference the codebase** — ground the design in existing code patterns
+- **Reference the codebase** — ground the spec in existing code patterns
 - **Keep tasks small** — each should be completable in one session
-- **Pause between phases** — let the user review the design before creating tasks
-- **Skip what exists** — if a design already exists, go straight to task creation
+- **Pause between phases** — let the user review the spec before creating tasks
+- **Skip what exists** — if a spec already exists, go straight to task creation
 
 ---
 
 ## Resuming
 
-If design already exists but no tasks:
-- Read the existing design via `read_spec`
+If spec already exists but no tasks:
+- Read the existing spec via `read_spec`
 - Skip to Phase 3 (task creation)
 
 ---

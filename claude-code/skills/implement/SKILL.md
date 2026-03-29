@@ -22,12 +22,12 @@ Read the spec from Colign, implement the code locally, and update task progress 
 ### Load Spec & Tasks
 
 1. Call `mcp__colign__get_change` to see the change's current stage and metadata
-2. Call `mcp__colign__read_spec` with `doc_type: design` to read the design
+2. Call `mcp__colign__read_spec` with `doc_type: spec` to read the spec
 3. Call `mcp__colign__read_spec` with `doc_type: proposal` for additional context
 4. Call `mcp__colign__list_tasks` to see the task list and their current status
 5. Call `mcp__colign__list_acceptance_criteria` to see what needs to be verified
 
-If no design or tasks exist, suggest running `/colign:plan` first.
+If no spec or tasks exist, suggest running `/colign:plan` first.
 
 ### Task Loop
 

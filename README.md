@@ -32,26 +32,29 @@ onboard → explore → propose → plan → implement → complete
 |-------|-------------|
 | `/colign:onboard` | Verify MCP connection |
 | `/colign:explore` | Browse projects, read specs, check status |
-| `/colign:propose` | Write a structured proposal (Problem, Scope, Approach) |
+| `/colign:propose` | Write a structured proposal (Problem, Scope, Out of Scope) |
 | `/colign:plan` | Break proposal into architecture and tasks |
 | `/colign:implement` | Code against the spec, update task progress |
 | `/colign:complete` | Verify all tasks done, advance workflow |
 
 Skills auto-trigger by context or can be invoked explicitly.
 
-## MCP Tools
+## MCP Tools (33)
 
-| Tool | Description |
-|------|-------------|
-| `list_projects` | List all accessible projects |
-| `get_change` | Get change details including stage |
-| `read_spec` | Read a spec document |
-| `write_spec` | Write or update a spec document |
-| `list_tasks` | List implementation tasks |
-| `update_task` | Update a task's status |
-| `suggest_spec` | Get suggestions for improving a spec |
-| `list_acceptance_criteria` | List acceptance criteria (Given/When/Then) |
-| `create_acceptance_criteria` | Create BDD-style acceptance criteria |
+All tools are auto-permitted via `settings.json`.
+
+| Category | Tools |
+|----------|-------|
+| **Projects** | `list_projects`, `create_project`, `update_project` |
+| **Changes** | `create_change`, `list_changes`, `get_change`, `update_change`, `archive_change` |
+| **Workflow** | `advance_stage`, `approve_change`, `reject_change` |
+| **Specs** | `read_spec`, `write_spec`, `suggest_spec` |
+| **Tasks** | `create_task`, `list_tasks`, `update_task`, `delete_task` |
+| **Acceptance Criteria** | `list_acceptance_criteria`, `create_acceptance_criteria`, `toggle_acceptance_criteria`, `link_ac_to_test` |
+| **Comments** | `list_comments`, `create_comment` |
+| **Memory** | `get_memory`, `save_memory` |
+| **Analytics** | `get_change_summary`, `get_change_history`, `get_project_dashboard`, `get_gate_status`, `get_work_context` |
+| **User** | `get_me`, `list_members` |
 
 ## License
 

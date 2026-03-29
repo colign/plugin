@@ -27,7 +27,7 @@ Present a quick overview:
 Connected to Colign!
 
 Projects:
-● My Project — 2 changes (1 in Design, 1 in Draft)
+● My Project — 2 changes (1 in Spec, 1 in Draft)
 ● Other Project — no changes yet
 ```
 
@@ -39,9 +39,9 @@ Based on what you found, suggest the most relevant skill:
 |-----------|---------------|
 | No projects exist | "Create a project first on the Colign web app, then come back" |
 | Project exists, no changes | `/colign:propose` — "Start by proposing a new change" |
-| Change exists with proposal only | `/colign:plan` — "There's a proposal ready. Want to plan the implementation?" |
-| Change exists with design + tasks | `/colign:implement` — "Tasks are ready. Want to start implementing?" |
-| All tasks done, not advanced | `/colign:complete` — "Looks like implementation is done. Ready to wrap up?" |
+| Change in draft with proposal | `/colign:plan` — "There's a proposal ready. Want to plan the implementation?" |
+| Change in spec with tasks | `/colign:implement` — "Tasks are ready. Want to start implementing?" |
+| All tasks done, not approved | `/colign:complete` — "Looks like implementation is done. Ready to wrap up?" |
 | Just want to look around | `/colign:explore` — "Let's explore what's in the project" |
 
 ## Available Skills
@@ -49,7 +49,7 @@ Based on what you found, suggest the most relevant skill:
 ```
 /colign:explore   — Browse projects and think through ideas
 /colign:propose   — Write a proposal for a new change
-/colign:plan      — Design the implementation and create tasks
+/colign:plan      — Write the spec and create tasks
 /colign:implement — Code against the task list
 /colign:complete  — Verify, advance stage, and archive
 ```

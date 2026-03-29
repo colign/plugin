@@ -2,12 +2,38 @@
   "permissions": {
     "allow": [
       "mcp__colign__list_projects",
+      "mcp__colign__create_project",
+      "mcp__colign__update_project",
+      "mcp__colign__create_change",
+      "mcp__colign__list_changes",
       "mcp__colign__get_change",
+      "mcp__colign__update_change",
+      "mcp__colign__archive_change",
+      "mcp__colign__advance_stage",
+      "mcp__colign__approve_change",
+      "mcp__colign__reject_change",
       "mcp__colign__read_spec",
       "mcp__colign__write_spec",
+      "mcp__colign__suggest_spec",
+      "mcp__colign__create_task",
       "mcp__colign__list_tasks",
       "mcp__colign__update_task",
-      "mcp__colign__suggest_spec"
+      "mcp__colign__delete_task",
+      "mcp__colign__list_acceptance_criteria",
+      "mcp__colign__create_acceptance_criteria",
+      "mcp__colign__toggle_acceptance_criteria",
+      "mcp__colign__link_ac_to_test",
+      "mcp__colign__list_comments",
+      "mcp__colign__create_comment",
+      "mcp__colign__get_memory",
+      "mcp__colign__save_memory",
+      "mcp__colign__get_change_summary",
+      "mcp__colign__get_change_history",
+      "mcp__colign__get_project_dashboard",
+      "mcp__colign__get_gate_status",
+      "mcp__colign__get_work_context",
+      "mcp__colign__get_me",
+      "mcp__colign__list_members"
     ]
   }
 }

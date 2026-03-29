@@ -18,21 +18,17 @@ Create a structured proposal and save it to the Colign platform. This captures t
 3. If a change already exists, call `mcp__colign__read_spec` with `doc_type: proposal` to check for existing content
 4. Optionally call `mcp__colign__get_memory` for project conventions and context
 5. Gather context from the user about what they want to build
-6. Draft a structured proposal:
-
-```markdown
-## Problem
-Why is this change needed? What user pain does it solve?
-
-## Scope
-What specifically will change? Be concrete about deliverables.
-
-## Out of Scope
-What is explicitly NOT included in this change?
-```
+6. Draft a structured proposal with these sections:
+   - **Problem**: Why is this change needed? What user pain does it solve?
+   - **Scope**: What specifically will change? Be concrete about deliverables.
+   - **Out of Scope**: What is explicitly NOT included in this change?
 
 7. Present the draft to the user for review
-8. After approval, call `mcp__colign__write_spec` with `doc_type: proposal` to save
+8. After approval, call `mcp__colign__write_spec` with `doc_type: proposal`. **Important**: The content must be a JSON string with keys `problem`, `scope`, and `outOfScope` (optional). Example:
+
+```json
+{"problem": "Users can't reset passwords...", "scope": "Add password reset flow...", "outOfScope": "SSO integration..."}
+```
 
 ---
 
@@ -53,6 +49,6 @@ After the proposal is saved, guide the user based on what they need:
 ```
 Proposal saved!
 
-→ To continue with design and tasks: /colign:plan
+→ To continue with spec and tasks: /colign:plan
 → Or stop here — another team member can pick it up from the platform.
 ```

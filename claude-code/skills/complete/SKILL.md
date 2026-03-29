@@ -44,7 +44,7 @@ Show the gate status clearly:
 
 ```
 Gate → [next stage]
-✓ Design document exists
+✓ Spec document exists
 ✓ All tasks completed
 ✗ At least 1 approval needed
 ```
@@ -78,7 +78,7 @@ Ask if there are project learnings worth saving:
 
 ### Step 6: Archive (Optional)
 
-If the change has reached the final stage (Ready), ask whether to archive it:
+If the change has reached the final stage (Approved), ask whether to archive it:
 
 ```
 All done! Archive this change?

@@ -42,7 +42,7 @@ When discussing a specific change:
 ```
 mcp__colign__get_change            → Change details (stage, metadata)
 mcp__colign__get_change_summary    → Change summary (proposal + AC + gate at a glance)
-mcp__colign__read_spec             → Read documents (proposal, design, spec, tasks)
+mcp__colign__read_spec             → Read documents (proposal, spec, tasks)
 mcp__colign__get_gate_status       → Gate conditions (can it advance to next stage?)
 mcp__colign__get_change_history    → Workflow history
 mcp__colign__list_tasks            → Task list and progress
@@ -75,15 +75,15 @@ User: "How's the Colign project going?"
   Project: Colign
   ┌──────────────────────────────┐
   │ Changes                      │
-  │ ● auth-system   [Design]     │
+  │ ● auth-system   [Spec]       │
   │ ● dark-mode     [Draft]      │
-  │ ● perf-tuning   [Ready] ✓   │
+  │ ● perf-tuning   [Approved] ✓ │
   │                              │
   │ Tasks: 12/20 done            │
   │ Health: On Track             │
   └──────────────────────────────┘
 
-  auth-system is in Design. Want to dig into that one?
+  auth-system is in Spec. Want to dig into that one?
 ```
 
 ### When the user digs into a specific change
@@ -92,24 +92,24 @@ User: "How's the Colign project going?"
 User: "Where's the auth-system change at?"
 
 → get_change_summary for overview
-→ read_spec to read proposal/design
+→ read_spec to read proposal/spec
 → get_gate_status to check next-stage conditions
 
-  Change: auth-system (Stage: Design)
+  Change: auth-system (Stage: Spec)
 
   ┌─ Proposal ─────────────────────┐
   │ OAuth2 + JWT auth system       │
   │ Google, GitHub social login    │
   └────────────────────────────────┘
 
-  ┌─ Gate → Review ────────────────┐
-  │ ✓ Design document exists       │
+  ┌─ Gate → Approved ──────────────┐
+  │ ✓ Spec document exists         │
   │ ✗ All tasks assigned           │
   │ ✗ At least 1 approval          │
   └────────────────────────────────┘
 
   Tasks aren't assigned and no approval yet.
-  Want to look at the design doc more closely?
+  Want to look at the spec doc more closely?
 ```
 
 ### When the user is weighing a decision
@@ -144,7 +144,7 @@ When a decision crystallizes during exploration, **offer** to record it in Colig
 | Insight | Where to Record | Example Offer |
 |---------|----------------|---------------|
 | New requirement discovered | spec | "That's a new requirement. Add it to the spec?" |
-| Design decision made | design | "Design decision made. Capture it in the design doc?" |
+| Design decision made | spec | "Design decision made. Capture it in the spec doc?" |
 | Scope changed | proposal | "Scope just shifted. Update the proposal?" |
 | New work identified | task | "Sounds like a new task. Want to create it?" |
 

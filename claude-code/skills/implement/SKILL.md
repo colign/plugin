@@ -65,6 +65,88 @@ Before marking a task as `done`:
 - Tests pass
 - Implementation matches the spec requirements
 
+## Code Review Phase
+
+After all tasks are marked `done`, run a code review before moving to completion. This catches issues while context is fresh — before the team sees the code.
+
+### Strategy: Skill-first, Subagent fallback
+
+**Option A (preferred)** — If the `/plugin:code-review` skill is available, use it. It runs a structured security + quality review on uncommitted changes via `git diff`. Invoke it with the Skill tool:
+
+```
+Skill("plugin:code-review")
+```
+
+This covers hardcoded credentials, SQL/XSS injection, input validation, code complexity, missing error handling, and best practices — all with severity ratings and line-level locations.
+
+**Option B (fallback)** — If `/plugin:code-review` is not available (skill not installed), spawn a subagent review instead. Use the Agent tool with `subagent_type: "code-reviewer"`:
+
+```
+Review the code changes for this Colign change.
+
+## Spec
+[Insert the spec content from read_spec]
+
+## Acceptance Criteria
+[Insert AC list from list_acceptance_criteria]
+
+## Files Changed
+[List the files that were created or modified during implementation]
+
+## Review Criteria
+
+1. **Spec Compliance** — Does the implementation fulfill the spec requirements? Are any deliverables missing?
+2. **Code Quality** — Naming, structure, readability. Any overly complex logic that could be simplified?
+3. **Error Handling** — Are failure cases handled? Missing validations at boundaries?
+4. **Security** — Input sanitization, auth checks, no hardcoded secrets, OWASP basics
+5. **Test Coverage** — Are critical paths tested? Any obvious gaps in test cases?
+6. **Performance** — N+1 queries, unnecessary allocations, missing pagination, blocking calls
+
+For each finding, provide:
+- **Severity**: Critical / High / Medium / Low
+- **Location**: File and line
+- **Issue**: What's wrong
+- **Fix**: Concrete suggestion
+
+Then provide:
+- **Overall verdict**: Approve / Request Changes
+- **Summary**: 1-2 sentences on overall code health
+```
+
+### After the review
+
+Present the results clearly:
+
+```
+Code Review Results
+
+Spec Compliance:  [verdict]
+Code Quality:     [X findings]
+Error Handling:   [X findings]
+Security:         [X findings]
+Test Coverage:    [X findings]
+Performance:      [X findings]
+
+Verdict: [Approve / Request Changes]
+```
+
+- If **Approve** (or no CRITICAL/HIGH issues) — proceed to Next Step
+- If **Request Changes** (or CRITICAL/HIGH issues found) — show findings grouped by severity, ask the user which to address. Fix the accepted items, re-run verification (build, tests), and re-run the review
+- The user can skip the revision cycle at any point if they're satisfied
+
+### When to run
+
+- **Always** after all tasks are complete, before suggesting `/colign:complete`
+- If the user implements tasks across multiple sessions, run the review when the last task is marked done
+
+---
+
 ## Next Step
 
-When all tasks are complete, suggest running `/colign:complete` to finalize the change.
+When all tasks are complete and the code review passes, suggest running `/colign:complete` to finalize the change.
+
+```
+All tasks done and code review passed!
+
+→ To finalize: /colign:complete
+```

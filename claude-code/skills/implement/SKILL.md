@@ -143,10 +143,14 @@ Verdict: [Approve / Request Changes]
 
 ## Next Step
 
-When all tasks are complete and the code review passes, suggest running `/colign:complete` to finalize the change.
+When all tasks are complete and the code review passes:
+
+1. **Mark as Ready** — Call `mcp__colign__update_change` to set sub-status to `ready`, signaling the change is ready for review
+2. Suggest running `/colign:complete` to finalize the change
 
 ```
 All tasks done and code review passed!
 
+→ Change marked as Ready for review
 → To finalize: /colign:complete
 ```

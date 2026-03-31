@@ -27,7 +27,7 @@ Present a quick overview:
 Connected to Colign!
 
 Projects:
-● My Project — 2 changes (1 in Spec, 1 in Draft)
+● My Project — 2 changes (1 in Spec · Ready, 1 in Draft · WIP)
 ● Other Project — no changes yet
 ```
 
@@ -39,8 +39,10 @@ Based on what you found, suggest the most relevant skill:
 |-----------|---------------|
 | No projects exist | "Create a project first on the Colign web app, then come back" |
 | Project exists, no changes | `/colign:propose` — "Start by proposing a new change" |
-| Change in draft with proposal | `/colign:plan` — "There's a proposal ready. Want to plan the implementation?" |
-| Change in spec with tasks | `/colign:implement` — "Tasks are ready. Want to start implementing?" |
+| Change in draft (in_progress) | `/colign:propose` — "There's a draft in progress. Want to refine the proposal?" |
+| Change in draft (ready) | `/colign:plan` — "Proposal looks ready. Want to plan the implementation?" |
+| Change in spec (in_progress) | `/colign:implement` — "Tasks are ready. Want to start implementing?" |
+| Change in spec (ready) | `/colign:complete` — "Implementation looks done. Ready to wrap up?" |
 | All tasks done, not approved | `/colign:complete` — "Looks like implementation is done. Ready to wrap up?" |
 | Just want to look around | `/colign:explore` — "Let's explore what's in the project" |
 

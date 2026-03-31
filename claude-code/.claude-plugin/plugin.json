@@ -1,7 +1,7 @@
 {
   "name": "colign",
   "description": "Claude Code integration for Colign — AI-powered spec management platform. Read, write, and manage specs directly from Claude Code.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": {
     "name": "Colign",
     "url": "https://github.com/colign/colign"

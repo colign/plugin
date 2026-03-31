@@ -73,17 +73,17 @@ User: "How's the Colign project going?"
 → Summarize visually
 
   Project: Colign
-  ┌──────────────────────────────┐
-  │ Changes                      │
-  │ ● auth-system   [Spec]       │
-  │ ● dark-mode     [Draft]      │
-  │ ● perf-tuning   [Approved] ✓ │
-  │                              │
-  │ Tasks: 12/20 done            │
-  │ Health: On Track             │
-  └──────────────────────────────┘
+  ┌──────────────────────────────────┐
+  │ Changes                          │
+  │ ● auth-system   [Spec · Ready]   │
+  │ ● dark-mode     [Draft · WIP]    │
+  │ ● perf-tuning   [Approved] ✓     │
+  │                                  │
+  │ Tasks: 12/20 done                │
+  │ Health: On Track                 │
+  └──────────────────────────────────┘
 
-  auth-system is in Spec. Want to dig into that one?
+  auth-system is in Spec (Ready for review). Want to dig into that one?
 ```
 
 ### When the user digs into a specific change
@@ -95,7 +95,7 @@ User: "Where's the auth-system change at?"
 → read_spec to read proposal/spec
 → get_gate_status to check next-stage conditions
 
-  Change: auth-system (Stage: Spec)
+  Change: auth-system (Stage: Spec · Ready)
 
   ┌─ Proposal ─────────────────────┐
   │ OAuth2 + JWT auth system       │

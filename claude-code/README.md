@@ -36,10 +36,19 @@ onboard → explore → propose → plan → implement → complete
 |-------|-------|-------------|
 | `/colign:onboard` | Setup | Verify MCP connection |
 | `/colign:explore` | Any | Browse projects, read specs, check change status |
-| `/colign:propose` | Draft → Problem | Define the problem, scope, and write a structured proposal |
-| `/colign:plan` | Problem → Solution | Break proposal into architecture, implementation steps, and tasks |
-| `/colign:implement` | Solution → Review | Code against the spec, update task progress |
-| `/colign:complete` | Review → Done | Verify all tasks are done, advance the workflow |
+| `/colign:propose` | Draft | Define the problem, scope, and write a structured proposal |
+| `/colign:plan` | Draft → Spec | Break proposal into architecture, implementation steps, and tasks |
+| `/colign:implement` | Spec | Code against the spec, update task progress |
+| `/colign:complete` | Spec → Approved | Verify all tasks are done, advance the workflow |
+
+### Stages & Sub-Status
+
+Each change has a **stage** (`draft` → `spec` → `approved`) and a **sub-status** (`in_progress` | `ready`):
+
+- `in_progress` — Work is ongoing, not ready for review
+- `ready` — Work is complete, ready for the next stage or review
+
+Use `mcp__colign__update_change` to toggle sub-status. The UI shows "Mark as Ready" / "Mark as In Progress" buttons.
 
 Skills auto-trigger based on context (e.g., "implement the next task") or can be invoked explicitly.
 

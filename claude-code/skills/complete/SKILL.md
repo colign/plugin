@@ -49,13 +49,19 @@ Gate → [next stage]
 ✗ At least 1 approval needed
 ```
 
-### Step 4: Summarize and Advance
+### Step 4: Mark as Ready
+
+If the change sub-status is still `in_progress`, mark it as `ready` before advancing:
+- Call `mcp__colign__update_change` to set sub-status to `ready`
+
+### Step 5: Summarize and Advance
 
 Summarize what was accomplished:
 
 ```
 Change: [name]
 Stage: [current] → [next]
+Sub-status: ready
 Tasks: [X/Y completed]
 AC: [X/Y met]
 
@@ -71,12 +77,12 @@ If gate conditions are not met:
 - Show what's missing
 - Suggest actions to resolve
 
-### Step 5: Save Learnings (Optional)
+### Step 6: Save Learnings (Optional)
 
 Ask if there are project learnings worth saving:
 - Call `mcp__colign__save_memory` to update project memory with conventions, decisions, or patterns discovered during implementation
 
-### Step 6: Archive (Optional)
+### Step 7: Archive (Optional)
 
 If the change has reached the final stage (Approved), ask whether to archive it:
 
